@@ -5,7 +5,7 @@ Mechanics studies in the Technical University of Munich.
 ### Authors
 * **[Mahmoud Zidan](https://gitlab.lrz.de/ga53zaf)**
 * **[Gabriela Loera](https://gitlab.lrz.de/ga86zax)**
-* **[Mahmoud Ammar](https://gitlab.lrz.de/ga53veh)**
+* **[Mahmoud Ammar](https://github.com/MahmoudAmmar-96)**
 
 ### Supervisors
 * **[Mohamed Elhaddad](https://gitlab.lrz.de/ga73gix)**
@@ -30,15 +30,15 @@ has 2d finite elements with x(space) and t(time) dependencies).
 This project shows an implementation of the Space-Time Finite Element Method to solve a transient heat diffusive problem. The implemented program is a stand-alone object-oriented Python code, which solves a problem in semi-discrete approach or using the Space-Time Finite Element Method (STFEM).
 
 ## Theory
-The transient heat equation being solved is as follows: 
-```math
-c \frac{\partial T}{\partial t} - \kappa \frac{\partial^2 T}{\partial x^2} = f(x,t),
-```
-where $`T`$ is the temperature, $`c`$ is the heat capacity, and $`\kappa`$ is the heat conductivity. The conventional semi-discrete approach would be, after discretizing and applying the weak form,
-```math
-\left( \frac{c}{\Delta t} M_{ij} + \theta K_{ij} \right) \hat{T}_i^{k+1} = \left( \frac{c}{\Delta t} M_{ij} - (1-\theta)K_{ij} \right) \hat{T}_i^k + (1 - \theta) f_i^k + \theta f_i^{k+1},
-```
-where $`T^k = \sum^{dofs}{N_i \hat{T}_i^k}`$ is the discretized temperature field, $`M_{ij}=\int{N_i N_j}`$ and $`K=\int{N_{i,x} N_{j,x}}`$ are the system matrices, and $`0 \leq \theta \leq 1`$ is a time integration scheme parameter. On the other hand, the space-time approach would be simply solving $`K_{ij} \hat{T}_i = F_i`$ on a 2D mesh, where the two dimensions are the spatial and the temporal axes, and 
+The transient heat equation being solved is as follows:
+
+![Equation1](https://latex.codecogs.com/svg.latex?\frac{\partial&space;T}{\partial&space;t}&space;-&space;\kappa&space;\frac{\partial^2&space;T}{\partial&space;x^2}&space;=&space;f(x,t))
+
+where T is the temperature, c is the heat capacity, and κ is the heat conductivity. The conventional semi-discrete approach would be, after discretizing and applying the weak form,
+
+![Equation2](https://latex.codecogs.com/svg.latex?\left(&space;\frac{c}{\Delta&space;t}&space;M_{ij}&space;&plus;&space;\theta&space;K_{ij}&space;\right)&space;\hat{T}_i^{k&plus;1}&space;=&space;\left(&space;\frac{c}{\Delta&space;t}&space;M_{ij}&space;-&space;(1-\theta)K_{ij}&space;\right)&space;\hat{T}_i^k&space;&plus;&space;(1&space;-&space;\theta)&space;f_i^k&space;&plus;&space;\theta&space;f_i^{k&plus;1},)
+
+where $`T^k = \sum^{dofs}{N_i \hat{T}_i^k}`$ is the discretized temperature field, $`M_{ij}=\int{N_i N_j}`$ and $`K=\int{N_{i,x} N_{j,x}}`$ are the system matrices, and $`0 \leq \theta \leq 1`$ is a time integration scheme parameter. On the other hand, the space-time approach would be simply solving $`K_{ij} \hat{T}_i = F_i`$ on a 2D mesh, where the two dimensions are the spatial and the temporal axes, and
 ```math
 K_{ij} = c \int_t{ \int_x{ \frac{\partial N_i}{\partial t} N_j ~dxdt } } ~+~ \kappa \int_t{ \int_x{ \frac{\partial N_i}{\partial x} \frac{\partial N_j}{\partial x} ~dxdt } }.
 ```
