@@ -19,7 +19,7 @@ approach is that the time is considered as a dimension and the weak form
 is formulated accordingly. The shape functions are a tensor product of the
 spatial shape functions and the temporal shape function (e.g. the 1d problem
 has 2d finite elements with x(space) and t(time) dependencies).
-![STFEM](Auxilary/plots for readme/Picture1.png)
+![STFEM](Auxilary/plots_for_readme/Picture1.png)
 
 ### Advantages of Space-Time FEM:
 * Using high-order basis functions for space and time discretization leads to an approximation with a higher accuracy
@@ -43,7 +43,7 @@ where ![Equation3](https://latex.codecogs.com/svg.latex?T^k&space;=&space;\sum^{
 ![Equation8](https://latex.codecogs.com/svg.latex?K_{ij}&space;=&space;c&space;\int_t{&space;\int_x{&space;\frac{\partial&space;N_i}{\partial&space;t}&space;N_j&space;~dxdt&space;}&space;}&space;~&plus;~&space;\kappa&space;\int_t{&space;\int_x{&space;\frac{\partial&space;N_i}{\partial&space;x}&space;\frac{\partial&space;N_j}{\partial&space;x}&space;~dxdt&space;}&space;}.)
 
 ## Code Structure
-![code_structure](Auxilary/plots for readme/Picture2.png)
+![code_structure](Auxilary/plots_for_readme/Picture2.png)
 
 ## Examples
 ### Semi-Discrete
