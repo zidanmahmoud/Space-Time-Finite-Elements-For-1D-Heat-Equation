@@ -38,7 +38,7 @@ where T is the temperature, c is the heat capacity, and κ is the heat conductiv
 
 ![Equation2](https://latex.codecogs.com/svg.latex?\left(&space;\frac{c}{\Delta&space;t}&space;M_{ij}&space;&plus;&space;\theta&space;K_{ij}&space;\right)&space;\hat{T}_i^{k&plus;1}&space;=&space;\left(&space;\frac{c}{\Delta&space;t}&space;M_{ij}&space;-&space;(1-\theta)K_{ij}&space;\right)&space;\hat{T}_i^k&space;&plus;&space;(1&space;-&space;\theta)&space;f_i^k&space;&plus;&space;\theta&space;f_i^{k&plus;1},)
 
-where $`T^k = \sum^{dofs}{N_i \hat{T}_i^k}`$ is the discretized temperature field, $`M_{ij}=\int{N_i N_j}`$ and $`K=\int{N_{i,x} N_{j,x}}`$ are the system matrices, and $`0 \leq \theta \leq 1`$ is a time integration scheme parameter. On the other hand, the space-time approach would be simply solving $`K_{ij} \hat{T}_i = F_i`$ on a 2D mesh, where the two dimensions are the spatial and the temporal axes, and
+where ![Equation3](https://latex.codecogs.com/svg.latex?T^k&space;=&space;\sum^{dofs}{N_i&space;\hat{T}_i^k}) is the discretized temperature field, $`M_{ij}=\int{N_i N_j}`$ and $`K=\int{N_{i,x} N_{j,x}}`$ are the system matrices, and $`0 \leq \theta \leq 1`$ is a time integration scheme parameter. On the other hand, the space-time approach would be simply solving $`K_{ij} \hat{T}_i = F_i`$ on a 2D mesh, where the two dimensions are the spatial and the temporal axes, and
 ```math
 K_{ij} = c \int_t{ \int_x{ \frac{\partial N_i}{\partial t} N_j ~dxdt } } ~+~ \kappa \int_t{ \int_x{ \frac{\partial N_i}{\partial x} \frac{\partial N_j}{\partial x} ~dxdt } }.
 ```
