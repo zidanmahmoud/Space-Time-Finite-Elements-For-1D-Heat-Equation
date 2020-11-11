@@ -491,7 +491,7 @@ class ModelConstructor:
             interval=2000/(self._timesteps+1), init_func=init, blit=True,)
 
         plt.show()
-        anim.save('semidiscrete.gif', fps=30)
+#        anim.save('semidiscrete.gif', fps=30)
         return anim
 
 
