@@ -3,6 +3,9 @@ from FE_code.element_1d import Element1D
 from FE_code.node import Node
 
 import numpy as np
+pi = np.pi
+sin = np.sin
+cos = np.cos
 
 
 class TestCombinationSum(TestCase):
@@ -56,3 +59,17 @@ class TestCombinationSum(TestCase):
         self.assertAlmostEqual(m_e[0][1], 0.00833333)
         self.assertAlmostEqual(m_e[1][0], 0.00833333)
         self.assertAlmostEqual(m_e[1][1], 0.01666667)
+
+    def test_f_vector(self):
+
+        nodes = [Node(1, 0, 0), Node(2, 0.05, 0)]
+        dofs = np.array([0, 1])
+        element_1d = Element1D(1, nodes, 1, dofs)
+
+        def force_global_function(x, t):
+            return 2*pi*cos(2*pi*t)*sin(2*pi*x) + 4*pi*pi*sin(2*pi*t)*sin(2*pi*x)
+
+        f_e = element_1d.f_vector(force_global_function, 0)
+
+        self.assertAlmostEqual(f_e[0], 0.01635941)
+        self.assertAlmostEqual(f_e[1], 0.03258397)
