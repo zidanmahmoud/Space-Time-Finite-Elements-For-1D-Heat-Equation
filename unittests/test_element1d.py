@@ -8,7 +8,7 @@ sin = np.sin
 cos = np.cos
 
 
-class TestCombinationSum(TestCase):
+class TestElement1D(TestCase):
     """
     Testing the CombinationSum class
     """
