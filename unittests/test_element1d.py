@@ -88,3 +88,16 @@ class TestElement1D(TestCase):
         integral = element_1d.integrate_uAnlytical_minus_uFEM_squared(u_an, local_u_FEM, 1)
 
         self.assertAlmostEqual(integral, 240.80266666666665)
+
+    def test_integrate_uAnlytical_squared(self):
+
+        nodes = [Node(1, 0, 0), Node(2, 0.05, 0)]
+        dofs = np.array([0, 1])
+        element_1d = Element1D(1, nodes, 1, dofs)
+
+        def u_an(x, t):
+            return sin(2*pi*x)*sin(2*pi*t)
+
+        integral = element_1d.integrate_uAnlytical_squared(u_an, 0.01)
+
+        self.assertAlmostEqual(integral, 0.010179115314613244)
