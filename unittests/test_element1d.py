@@ -101,3 +101,14 @@ class TestElement1D(TestCase):
         integral = element_1d.integrate_uAnlytical_squared(u_an, 0.01)
 
         self.assertAlmostEqual(integral, 0.010179115314613244)
+
+    def test_get_solution_point_from_solution_vector(self):
+
+        nodes = [Node(1, 0, 0), Node(2, 0.05, 0)]
+        dofs = np.array([0, 1])
+        element_1d = Element1D(1, nodes, 1, dofs)
+        local_u_FEM = [3.0, 0.01]
+
+        u = element_1d.get_solution_point_from_solution_vector(0.05, local_u_FEM)
+
+        self.assertEqual(u, 0.01)
