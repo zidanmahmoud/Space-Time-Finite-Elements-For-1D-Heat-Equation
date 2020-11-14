@@ -85,7 +85,8 @@ class TestElement1D(TestCase):
         def u_an(x, t):
             return sin(2*pi*x)*sin(2*pi*t)
 
-        integral = element_1d.integrate_uAnlytical_minus_uFEM_squared(u_an, local_u_FEM, 1)
+        integral = element_1d.integrate_uAnlytical_minus_uFEM_squared(
+            u_an, local_u_FEM, 1)
 
         self.assertAlmostEqual(integral, 240.80266666666665)
 
@@ -109,6 +110,7 @@ class TestElement1D(TestCase):
         element_1d = Element1D(1, nodes, 1, dofs)
         local_u_FEM = [3.0, 0.01]
 
-        u = element_1d.get_solution_point_from_solution_vector(0.05, local_u_FEM)
+        u = element_1d.get_solution_point_from_solution_vector(
+            0.05, local_u_FEM)
 
         self.assertEqual(u, 0.01)
