@@ -11,7 +11,7 @@ cos = np.cos
 
 class TestElement1D(TestCase):
     """
-    Testing the CombinationSum class
+    Testing the Element1D class
     """
 
     def test_element1D_instance_is_created(self):
